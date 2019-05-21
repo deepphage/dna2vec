@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-import logbook
 import tempfile
 import numpy as np
 
@@ -16,7 +15,6 @@ class MultiKModel:
     def __init__(self, filepath):
         # self.aggregate = word2vec.Word2Vec.load_word2vec_format(filepath, binary=False)
         self.aggregate = KeyedVectors.load_word2vec_format(filepath, binary=False)
-        self.logger = logbook.Logger(self.__class__.__name__)
 
         vocab_lens = [len(vocab) for vocab in self.aggregate.vocab.keys()]
         self.k_low = min(vocab_lens)
